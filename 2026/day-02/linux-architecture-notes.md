@@ -1,7 +1,8 @@
 # Linux Architecture Overview
-The easiest way to remember the Linux Architecure is with the word **ASK**
-**A** - **Application** - Outer Circle where end user programs runs
-**S** - **Shell** - Inner circle to Application which is basically helps to communicate Application with the Heart of Linux, which is **Kernel**.
+The easiest way to remember the Linux Architecure is with the word **ASK**  
+
+**A** - **Application** - Outer Circle where end user programs runs  
+**S** - **Shell** - Inner circle to Application which is basically helps to communicate Application with the Heart of Linux, which is **Kernel**.  
 **K** - **Kernel** - The HEART of the Linux Architecure. It is an inner circle to Shell.  
 
 ## Main Components
