@@ -3,10 +3,10 @@
 ## Command Flow  
 
 $ touch notes.txt  
-  - Create an empty file notes.txt in current working directory
+  - Create an empty file **notes.txt** in current working directory
 
 $ echo "This is the first line of new file" > notes.txt  
-  - First line inserted with **>**
+  - First line is inserted to newly create empty file **notes.txt** with **>**
 
 $ echo "This is the second line of new file" >> notes.txt  
   - Second line is appended to existing **notes.txt** with **>>**
