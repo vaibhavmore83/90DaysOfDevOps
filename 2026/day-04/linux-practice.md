@@ -2,11 +2,11 @@
 
 ## Process checks
 
-**ps aux**
-USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-root         1  0.0  0.1 169084  1124 ?        Ss   Feb19   0:02 /sbin/init
-vaibhav   1234  0.1  0.3  45200  3456 pts/0    Ss   22:30   0:00 bash
-vaibhav   1256  0.0  0.1  38400  2100 pts/0    R+   22:34   0:00 ps aux
+**ps aux**  
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND  
+root         1  0.0  0.1 169084  1124 ?        Ss   Feb19   0:02 /sbin/init  
+vaibhav   1234  0.1  0.3  45200  3456 pts/0    Ss   22:30   0:00 bash  
+vaibhav   1256  0.0  0.1  38400  2100 pts/0    R+   22:34   0:00 ps aux  
 
 **top**
 top - 22:39:01 up  2:15,  2 users,  load average: 0.12, 0.08, 0.05
