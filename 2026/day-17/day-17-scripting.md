@@ -20,3 +20,28 @@ orange
 kiwi
 papaya
 ```
+---  
+  
+### Script: `count.sh`
+
+```bash
+#!/bin/bash
+read -p "Enter the number to countdown: " number
+
+while [ $number -gt 0 ]; do
+        echo $number
+        ((number--))
+done
+echo "Done!"
+```
+**Output:**  
+```bash
+Enter the number to countdown: 5
+5
+4
+3
+2
+1
+Done!
+```
+--- 
