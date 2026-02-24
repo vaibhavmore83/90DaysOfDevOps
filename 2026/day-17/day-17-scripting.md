@@ -12,10 +12,11 @@ for fruit in "${fruits_list[@]}"; do
     echo $fruit
 done
 ```
-Output:
-
+**Output:**  
+```bash
 apple
 banana
 orange
 kiwi
 papaya
+```
