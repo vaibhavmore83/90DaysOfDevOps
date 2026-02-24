@@ -20,7 +20,7 @@ name="Vaibhav"
 role="DevOps Eng"
 echo "Hello, I am $name and I am a $role"
 echo 'Hello, I am $name and I am a $role'
-
+  
 **Output:**  
 Hello, I am Vaibhav and I am a DevOps Eng  
 Hello, I am $name and I am a $role  
