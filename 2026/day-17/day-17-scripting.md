@@ -1,17 +1,17 @@
-# Shell Scripting: Loops, Arguments & Error Handling  
+# Shell Scripting: Loops, Arguments & Error Handling
 
-## For Loop  
+## For Loop
 
-**for_loop.sh**  
-  
-#!/bin/bash  
-fruits_list=("apple" "banana" "orange" "kiwi" "papaya")  
+### Script: `for_loop.sh`
 
-for fruit in "${fruits_list[@]}"; do  
-        echo $fruit  
-done  
+```bash
+#!/bin/bash
+fruits_list=("apple" "banana" "orange" "kiwi" "papaya")
 
-OUTPUT:  
+for fruit in "${fruits_list[@]}"; do
+    echo $fruit
+done
+
 apple
 banana
 orange
