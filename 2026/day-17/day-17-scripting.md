@@ -12,6 +12,8 @@ for fruit in "${fruits_list[@]}"; do
     echo $fruit
 done
 
+Output:
+
 apple
 banana
 orange
