@@ -150,3 +150,6 @@ Ans: Network and Transport Layers. The curl will give you a raw HTML source code
 
 Your app can't reach a database at **10.0.1.50:3306** — what would you check first?  
 Ans: I should first check the basic network connectivity between my application and the database server.  
+Run **ss -tulpn** to check listening port to its service.  
+If an issue, run **curl -I http://10.0.1.50:3306** to check the response.  
+If an issue, check the MySQL service status by running **sudo systemctl status mysql**.  
