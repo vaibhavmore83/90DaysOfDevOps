@@ -36,9 +36,9 @@ docker compose up -d --scale nginx=3 nginx
 
 WARN[0000] No services to build
 [+] up 3/3
- ✔ Container compose-basics-nginx-1 Recreated                                                                                                                          0.2s
- ✔ Container compose-basics-nginx-2 Recreated                                                                                                                          0.4s
- ✔ Container compose-basics-nginx-3 Recreated                                                                                                                          0.2s 
+ ✔ Container compose-basics-nginx-1 Recreated                                        0.2s
+ ✔ Container compose-basics-nginx-2 Recreated                                        0.4s
+ ✔ Container compose-basics-nginx-3 Recreated                                        0.2s 
 ```
 **docker ps -a**
 ```bash
@@ -48,4 +48,63 @@ d9b28ce5fca3   nginx:latest       "/docker-entrypoint.…"   8 seconds ago   Up 
 2929590a0508   nginx:latest       "/docker-entrypoint.…"   8 seconds ago   Up 6 seconds             0.0.0.0:8089->80/tcp, [::]:8089->80/tcp                  compose-basics-nginx-3
 bf2df4098cf0   mysql:8.0          "docker-entrypoint.s…"   8 minutes ago   Up 8 minutes (healthy)   0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp, 33060/tcp   mysql-dc
 5fe3b3c446df   wordpress:latest   "docker-entrypoint.s…"   44 hours ago    Up 7 minutes             0.0.0.0:8084->80/tcp, [::]:8084->80/tcp                  wordpress-dc
+```
+---  
+
+**docker-compose.yml**
+```bash
+services:
+  nginx:
+    image: nginx:latest
+#    container_name: nginx-dc
+    ports:
+    - "8087-8090:80"
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-dc
+    env_file:
+      - test.env
+    ports:
+    - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Test@123
+      MYSQL_DATABASE: TestDB
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pTest@123"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    volumes:
+    - mysql-dc-data:/var/lib/mysql
+    networks:
+    - test-dc-nw
+
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress-dc
+    ports:
+      - "8084:80"
+    volumes:
+      - wordpress-dc-data:/var/www/html
+    networks:
+    - test-dc-nw
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: TestDB
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: Test@123
+      WORDPRESS_DB_PORT: 3306
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  mysql-dc-data:
+  wordpress-dc-data:
+
+networks:
+  test-dc-nw:
+    driver: bridge
 ```
